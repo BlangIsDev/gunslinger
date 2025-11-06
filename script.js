@@ -5,18 +5,26 @@ var ground = window.innerHeight;
 var wall = window.innerWidth;
 
 var gravity = 5;
-var speed = 10;
+var speed = 5;
+var jumpheight = 10;
+var jumpsleft = 2;
 var grounded = false;
 
 var keys = {
     right: false,
-    left: false
+    left: false,
+    space: false
 };
 
 //key detection
 window.addEventListener("keydown", (e) => {
     if (e.code === "ArrowRight") keys.right = true;
     if (e.code === "ArrowLeft") keys.left = true;
+
+    if (e.code === "Space" && jumpsleft > 0) {
+        var xpos += jumpheight;
+        jumpsleft--;
+    }
 });
 
 window.addEventListener("keyup", (e) => {
@@ -41,7 +49,7 @@ function gameLoop() {
         grounded = false;
     }
     else {
-
+        jumpsleft = 2;
         grounded = true;
     }
 
