@@ -16,7 +16,8 @@ playerwidth = playhit.width;
 
 var gravity = 5;
 var speed = 5;
-var jumpheight = 100;
+var jumpvelocity = -20;
+var yvelocity = 0;
 var jumpsleft = 2;
 var grounded = false;
 
@@ -31,7 +32,7 @@ window.addEventListener("keydown", (e) => {
     if (e.code === "ArrowRight") keys.right = true;
     if (e.code === "ArrowLeft") keys.left = true;
     if (e.code === "Space" && jumpsleft > 0) {
-        ypos -= jumpheight;
+        yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
     }
@@ -55,8 +56,11 @@ function gameLoop() {
     var xright = playhit.right;
 
     //gravity
+    yvelocity += gravity;
+    ypos += yvelocity;
+
     if (ypos + playerheight < ground) {
-        ypos += gravity;
+        ypos = gravity - playerheight;
         grounded = false;
     }
     else {
