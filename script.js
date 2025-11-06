@@ -57,7 +57,7 @@ function gameLoop() {
 
     //gravity
     yvelocity += gravity;
-    ypos -= yvelocity;
+    ypos += yvelocity;
 
     if (ypos + playerheight >= ground) {
         ypos = ground - playerheight;
