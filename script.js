@@ -8,6 +8,10 @@ var wall = window.innerWidth;
 var playhit = player.getBoundingClientRect();
 var ypos = playhit.top;
 var xpos = playhit.left;
+playerheight = playhit.height;
+playerwidth = playhit.width;
+
+//game variables
 
 var gravity = 5;
 var speed = 5;
@@ -47,17 +51,18 @@ function gameLoop() {
     var xright = playhit.right;
 
     //gravity
-    if (ypos < ground) {
+    if (ypos + playerheight < ground) {
         ypos += gravity;
         grounded = false;
     }
     else {
+        ypos = ground - playerheight;
         jumpsleft = 2;
         grounded = true;
     }
 
     //movement
-    if (keys.right == true && xpos < wall) {
+    if (keys.right == true && xpos + playerwidth < wall) {
         xpos += speed;
     }
     if (keys.left == true && xpos > 0) {
