@@ -1,9 +1,13 @@
 body{
   background-color: lightgreen;
-  
+
 }
 
 .playerimg{
   width:50px;
   length:auto;
+}
+
+.player{
+  position: absolute;
 }
