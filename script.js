@@ -59,14 +59,14 @@ function gameLoop() {
     yvelocity += gravity;
     ypos += yvelocity;
 
-    if (ypos + playerheight < ground) {
-        ypos = gravity - playerheight;
-        grounded = false;
-    }
-    else {
+    if (ypos + playerheight >= ground) {
         ypos = ground - playerheight;
+        yvelocity = 0;
         jumpsleft = 2;
         grounded = true;
+    }
+    else {
+        grounded = false;
     }
 
     //movement
