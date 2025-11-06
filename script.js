@@ -16,7 +16,7 @@ playerwidth = playhit.width;
 
 var gravity = 1;
 var speed = 5;
-var jumpvelocity = -30;
+var jumpvelocity = -20;
 var yvelocity = 0;
 var jumpsleft = 2;
 var grounded = false;
