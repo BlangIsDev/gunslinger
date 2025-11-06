@@ -1,5 +1,6 @@
 //player
 var player = document.querySelector(".player");
+var playerimg = document.querySelector(".playerimg");
 
 var ground = window.innerHeight;
 var wall = window.innerWidth;
@@ -29,16 +30,19 @@ var keys = {
 window.addEventListener("keydown", (e) => {
     if (e.code === "ArrowRight") keys.right = true;
     if (e.code === "ArrowLeft") keys.left = true;
-
     if (e.code === "Space" && jumpsleft > 0) {
         ypos -= jumpheight;
         jumpsleft--;
+        playerimg.src = "greenbeanboom.png"
     }
 });
 
 window.addEventListener("keyup", (e) => {
     if (e.code === "ArrowRight") keys.right = false;
     if (e.code === "ArrowLeft") keys.left = false;
+    if (e.code === "Space") {
+        playerimg.src = "greenbean.png"
+    }
 });
 
 
