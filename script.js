@@ -14,7 +14,7 @@ playerwidth = playhit.width;
 
 //game variables
 
-var gravity = 5;
+var gravity = 1;
 var speed = 5;
 var jumpvelocity = -20;
 var yvelocity = 0;
