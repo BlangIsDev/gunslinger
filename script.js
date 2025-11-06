@@ -15,9 +15,19 @@ var grounded;
     function gameLoop() {
 
         //gravity
-        if(ybottom >= 0){
+        if(ybottom < 0){
             ypos + 1;
+            grounded = true;
         }
+        else{
+            ypos - 1;
+            grounded = false;
+        }
+
+        //update player position
+        player.style.top = ypos + "px";
+        player.style.left = xpos + "px";
+        
         requestAnimationFrame(gameLoop);
 }
     gameLoop();
