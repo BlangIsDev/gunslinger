@@ -4,6 +4,9 @@ var player = document.querySelector(".player");
 var ground = window.innerHeight;
 var wall = window.innerWidth;
 
+var ypos = playhit.top;
+var xpos = playhit.left;
+
 var gravity = 5;
 var speed = 5;
 var jumpheight = 10;
@@ -22,7 +25,7 @@ window.addEventListener("keydown", (e) => {
     if (e.code === "ArrowLeft") keys.left = true;
 
     if (e.code === "Space" && jumpsleft > 0) {
-        var xpos += jumpheight;
+        var ypos -= jumpheight;
         jumpsleft--;
     }
 });
@@ -38,8 +41,7 @@ function gameLoop() {
     //x and y positions
     var playhit = player.getBoundingClientRect();
 
-    var ypos = playhit.top;
-    var xpos = playhit.left;
+
     var ybottom = playhit.bottom;
     var xright = playhit.right;
 
