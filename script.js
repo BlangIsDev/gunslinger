@@ -19,7 +19,7 @@ var grounded = false;
 
         //gravity
         if(ybottom < ground){
-            ypos += 1;
+            ypos += gravity;
             grounded = false;
         }
         else{
