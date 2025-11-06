@@ -27,7 +27,7 @@ window.addEventListener("keydown", (e) => {
     if (e.code === "ArrowLeft") keys.left = true;
 
     if (e.code === "Space" && jumpsleft > 0) {
-        ypos += jumpheight;
+        ypos -= jumpheight;
         jumpsleft--;
     }
 });
