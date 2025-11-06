@@ -11,7 +11,7 @@ var xpos = playhit.left;
 
 var gravity = 5;
 var speed = 5;
-var jumpheight = 50;
+var jumpheight = 100;
 var jumpsleft = 2;
 var grounded = false;
 
