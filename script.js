@@ -9,6 +9,8 @@ var wall = window.innerWidth;
 var playhit = player.getBoundingClientRect();
 var ypos = playhit.top;
 var xpos = playhit.left;
+var ybottom = playhit.bottom;
+var xright = playhit.right;
 playerheight = playhit.height;
 playerwidth = playhit.width;
 
@@ -29,9 +31,9 @@ var keys = {
 
 //key detection
 window.addEventListener("keydown", (e) => {
-    if (e.code === "ArrowRight") keys.right = true;
-    if (e.code === "ArrowLeft") keys.left = true;
-    if (e.code === "Space" && jumpsleft > 0) {
+    if (e.code === "ArrowRight" || e.code === "d") keys.right = true;
+    if (e.code === "ArrowLeft" || e.code === "a") keys.left = true;
+    if (e.code === "Space" && jumpsleft > 0 || e.code === "w" && jumpsleft > 0) {
         yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
@@ -39,9 +41,9 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("keyup", (e) => {
-    if (e.code === "ArrowRight") keys.right = false;
-    if (e.code === "ArrowLeft") keys.left = false;
-    if (e.code === "Space") {
+    if (e.code === "ArrowRight" || e.code === "d" || e.code === "D") keys.right = false;
+    if (e.code === "ArrowLeft" || e.code === "a" || e.code === "A") keys.left = false;
+    if (e.code === "Space" || e.code === "w") {
         playerimg.src = "greenbean.png"
     }
 });
@@ -50,10 +52,6 @@ window.addEventListener("keyup", (e) => {
 function gameLoop() {
 
     playhit = player.getBoundingClientRect();
-
-
-    var ybottom = playhit.bottom;
-    var xright = playhit.right;
 
     //gravity
     yvelocity += gravity;
