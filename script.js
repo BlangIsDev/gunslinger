@@ -29,11 +29,19 @@ var keys = {
     space: false
 };
 
+//control keys
+const controls = {
+  right: ["ArrowRight", "KeyD"],
+  left: ["ArrowLeft", "KeyA"],
+  jump: ["Space", "KeyW", "ArrowUp"]
+};
+
+
 //key detection
 window.addEventListener("keydown", (e) => {
-    if (e.code === "ArrowRight" || e.code === ""KeyD) keys.right = true;
-    if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = true;
-    if (e.code === "Space" && jumpsleft > 0 || e.code === "KeyW" && jumpsleft > 0 || e.code === "ArrowUp" && jumpsleft > 0) {
+    if (controls.right.includes(e.code)) keys.right = true;
+    if (controls.left.includes(e.code)) keys.left = true;
+    if (controls.jump.includes(e.code) && jumpsleft > 0) {
         yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
@@ -41,10 +49,10 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("keyup", (e) => {
-    if (e.code === "ArrowRight" || e.code === "KeyD") keys.right = false;
-    if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = false;
-    if (e.code === "Space" || e.code === "KeyW" || e.code === "ArrowUp") {
-        playerimg.src = "greenbean.png"
+    if (controls.right.includes(e.code)) keys.right = false;
+    if (controls.left.includes(e.code)) keys.left = false;
+    if (controls.jump.includes(e.code)) {
+        playerimg.src = "greenbean.png";
     }
 });
 
