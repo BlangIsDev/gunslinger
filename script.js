@@ -31,9 +31,9 @@ var keys = {
 
 //key detection
 window.addEventListener("keydown", (e) => {
-    if (e.code === "ArrowRight" || e.code === "d") keys.right = true;
-    if (e.code === "ArrowLeft" || e.code === "a") keys.left = true;
-    if (e.code === "Space" && jumpsleft > 0 || e.code === "w" && jumpsleft > 0) {
+    if (e.code === "ArrowRight" || e.code === ""KeyD) keys.right = true;
+    if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = true;
+    if (e.code === "Space" && jumpsleft > 0 || e.code === "KeyW" && jumpsleft > 0 || e.code === "ArrowUp" && jumpsleft > 0) {
         yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
@@ -41,9 +41,9 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("keyup", (e) => {
-    if (e.code === "ArrowRight" || e.code === "d" || e.code === "D") keys.right = false;
-    if (e.code === "ArrowLeft" || e.code === "a" || e.code === "A") keys.left = false;
-    if (e.code === "Space" || e.code === "w" || e.code === "W" || e.code === "ArrowUp") {
+    if (e.code === "ArrowRight" || e.code === "KeyD") keys.right = false;
+    if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = false;
+    if (e.code === "Space" || e.code === "KeyW" || e.code === "ArrowUp") {
         playerimg.src = "greenbean.png"
     }
 });
