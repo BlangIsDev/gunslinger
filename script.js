@@ -43,7 +43,7 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     if (e.code === "ArrowRight" || e.code === "d" || e.code === "D") keys.right = false;
     if (e.code === "ArrowLeft" || e.code === "a" || e.code === "A") keys.left = false;
-    if (e.code === "Space" || e.code === "w") {
+    if (e.code === "Space" || e.code === "w" || e.code === "W" || e.code === "ArrowUp") {
         playerimg.src = "greenbean.png"
     }
 });
