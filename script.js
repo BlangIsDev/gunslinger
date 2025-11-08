@@ -94,6 +94,7 @@ function gameLoop() {
     if (keys.dashdown == true && grounded == false) {
         gravity = 5;
         speed = 0;
+    }
 
     //update player position
     player.style.top = ypos + "px";
