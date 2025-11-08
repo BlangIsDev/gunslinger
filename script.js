@@ -22,6 +22,9 @@ var jumpvelocity = -20;
 var yvelocity = 0;
 var jumpsleft = 2;
 var grounded = false;
+var dashing = false;
+
+//key states
 
 var keys = {
     right: false,
@@ -50,9 +53,7 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     if (controls.right.includes(e.code)) keys.right = false;
     if (controls.left.includes(e.code)) keys.left = false;
-    if (controls.jump.includes(e.code)) {
-        playerimg.src = "greenbean.png";
-    }
+    if (controls.jump.includes(e.code)) playerimg.src = "greenbean.png";
     if (controls.dashdown.includes(e.code)) keys.dashdown = false;
 });
 
@@ -64,17 +65,22 @@ function gameLoop() {
     playhit = player.getBoundingClientRect();
 
     //gravity
-    yvelocity += gravity;
+    if (dashing == false){
+        yvelocity += gravity;
+    }
+    else{
+        yvelocity = 25;
+    }
     ypos += yvelocity;
-
     //ground detection
 
     if (ypos + playerheight >= ground) {
         ypos = ground - playerheight;
         yvelocity = 0;
         jumpsleft = 2;
+        dashing = false;
         speed = 5;
-        gravity
+        gravity = 1
         grounded = true;
     }
     else {
@@ -82,21 +88,26 @@ function gameLoop() {
     }
 
     //movement
-    if (keys.right == true && xpos + playerwidth < wall) {
-        xpos += speed;
+    if (dashing == false){
+        if (keys.right == true && xpos + playerwidth < wall) {
+            xpos += speed;
     }
-    if (keys.left == true && xpos > 0) {
-        xpos -= speed;
+        if (keys.left == true && xpos > 0) {
+            xpos -= speed;
+        }
     }
     if (keys.space == true) {
         yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
     }
-    if (keys.dashdown == true) {
-        gravity = 5;
+    if (keys.dashdown == true && grounded == false && dashing == false) {
+        dashing = true;
+        yvelocity = 25;
+        gravity = 0;
         speed = 0;
     }
+
 
     //update player position
     player.style.top = ypos + "px";
