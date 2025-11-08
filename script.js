@@ -34,7 +34,7 @@ var keys = {
 const controls = {
   right: ["ArrowRight", "KeyD"],
   left: ["ArrowLeft", "KeyA"],
-  jump: ["Space", "KeyW", "ArrowUp"]
+  jump: ["Space", "KeyW", "ArrowUp"],
   dashdown: ["KeyX"]
 };
 
@@ -44,7 +44,7 @@ window.addEventListener("keydown", (e) => {
     if (controls.right.includes(e.code)) keys.right = true;
     if (controls.left.includes(e.code)) keys.left = true;
     if (controls.jump.includes(e.code) && jumpsleft > 0) keys.space = true;
-    if (controls.dashdown.includes(e.code)) keys.dash = true
+    if (controls.dashdown.includes(e.code)) keys.dashdown = true
 });
 
 window.addEventListener("keyup", (e) => {
@@ -53,6 +53,7 @@ window.addEventListener("keyup", (e) => {
     if (controls.jump.includes(e.code)) {
         playerimg.src = "greenbean.png";
     }
+    if (controls.dashdown.includes(e.code)) keys.dashdown = false;
 });
 
 
@@ -73,6 +74,7 @@ function gameLoop() {
         yvelocity = 0;
         jumpsleft = 2;
         speed = 5;
+        gravity
         grounded = true;
     }
     else {
