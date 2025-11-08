@@ -93,7 +93,7 @@ function gameLoop() {
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
     }
-    if (keys.dashdown == true && grounded == false) {
+    if (keys.dashdown == true) {
         gravity = 5;
         speed = 0;
     }
