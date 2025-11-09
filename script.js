@@ -47,14 +47,14 @@ window.addEventListener("keydown", (e) => {
     if (controls.right.includes(e.code)) keys.right = true;
     if (controls.left.includes(e.code)) keys.left = true;
     if (controls.jump.includes(e.code) && jumpsleft > 0) keys.space = true;
-    if (controls.dashdown.includes(e.code)) keys.dashdown = true
+    if (controls.dashdown.includes(e.code)) keys.dashdown = true; dashing = false;
 });
 
 window.addEventListener("keyup", (e) => {
     if (controls.right.includes(e.code)) keys.right = false;
     if (controls.left.includes(e.code)) keys.left = false;
     if (controls.jump.includes(e.code)) playerimg.src = "greenbean.png";
-    if (controls.dashdown.includes(e.code)) keys.dashdown = false;
+    if (controls.dashdown.includes(e.code)) keys.dashdown = false; dashing = false;
 });
 
 
