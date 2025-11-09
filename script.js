@@ -47,14 +47,14 @@ window.addEventListener("keydown", (e) => {
     if (controls.right.includes(e.code)) keys.right = true;
     if (controls.left.includes(e.code)) keys.left = true;
     if (controls.jump.includes(e.code) && jumpsleft > 0) keys.space = true;
-    if (controls.dashdown.includes(e.code)) keys.dashdown = true; dashing = false;
+    if (controls.dashdown.includes(e.code)) keys.dashdown = true;
 });
 
 window.addEventListener("keyup", (e) => {
     if (controls.right.includes(e.code)) keys.right = false;
     if (controls.left.includes(e.code)) keys.left = false;
     if (controls.jump.includes(e.code)) playerimg.src = "greenbean.png";
-    if (controls.dashdown.includes(e.code)) keys.dashdown = false; dashing = false; gravity = 1; speed = 5;
+    if (controls.dashdown.includes(e.code)) {keys.dashdown = false; dashing = false; gravity = 1; speed = 5;}
 });
 
 
@@ -88,7 +88,7 @@ function gameLoop() {
     if (dashing == false){
         if (keys.right == true && xpos + playerwidth < wall) {
             xpos += speed;
-    }
+        }
         if (keys.left == true && xpos > 0) {
             xpos -= speed;
         }
