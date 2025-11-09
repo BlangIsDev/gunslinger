@@ -46,14 +46,15 @@ const controls = {
 window.addEventListener("keydown", (e) => {
     if (controls.right.includes(e.code)) keys.right = true;
     if (controls.left.includes(e.code)) keys.left = true;
-    if (controls.jump.includes(e.code) && jumpsleft > 0) keys.space = true;
-    if (controls.dashdown.includes(e.code)) {
+    if (controls.jump.includes(e.code) && jumpsleft > 0) {
         if (jumpsleft > 0) {
             yvelocity = jumpvelocity;
             jumpsleft--;
             playerimg.src = "greenbeanboom.png"
         }
+        keys.space = true;
     }
+    if (controls.dashdown.includes(e.code)) keys.dashdown = true;
 });
 
 window.addEventListener("keyup", (e) => {
