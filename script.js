@@ -93,7 +93,7 @@ function gameLoop() {
             xpos -= speed;
         }
     }
-    if (keys.space == true) {
+    if (keys.space == true && jumpsleft > 0) {
         yvelocity = jumpvelocity;
         jumpsleft--;
         playerimg.src = "greenbeanboom.png"
