@@ -65,13 +65,10 @@ function gameLoop() {
     playhit = player.getBoundingClientRect();
 
     //gravity
-    if (dashing == false){
-        yvelocity += gravity;
-    }
-    else{
-        yvelocity = 25;
-    }
+
+    yvelocity += gravity;
     ypos += yvelocity;
+
     //ground detection
 
     if (ypos + playerheight >= ground) {
@@ -103,7 +100,7 @@ function gameLoop() {
     }
     if (keys.dashdown == true && grounded == false && dashing == false) {
         dashing = true;
-        yvelocity = 25;
+        yvelocity = 35;
         gravity = 0;
         speed = 0;
     }
