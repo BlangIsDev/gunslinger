@@ -35,10 +35,10 @@ var keys = {
 
 //control keys
 const controls = {
-  right: ["ArrowRight", "KeyD"],
-  left: ["ArrowLeft", "KeyA"],
-  jump: ["Space", "KeyW", "ArrowUp"],
-  dashdown: ["KeyX"]
+    right: ["ArrowRight", "KeyD"],
+    left: ["ArrowLeft", "KeyA"],
+    jump: ["Space", "KeyW", "ArrowUp"],
+    dashdown: ["KeyX"]
 };
 
 
@@ -47,25 +47,26 @@ window.addEventListener("keydown", (e) => {
     if (controls.right.includes(e.code)) keys.right = true;
     if (controls.left.includes(e.code)) keys.left = true;
     if (controls.jump.includes(e.code) && jumpsleft > 0) keys.space = true;
-    if (controls.dashdown.includes(e.code)) {    
+    if (controls.dashdown.includes(e.code)) {
         if (jumpsleft > 0) {
-        yvelocity = jumpvelocity;
-        jumpsleft--;
-        playerimg.src = "greenbeanboom.png"}
+            yvelocity = jumpvelocity;
+            jumpsleft--;
+            playerimg.src = "greenbeanboom.png"
+        }
     }
 });
 
 window.addEventListener("keyup", (e) => {
     if (controls.right.includes(e.code)) keys.right = false;
     if (controls.left.includes(e.code)) keys.left = false;
-    if (controls.jump.includes(e.code)) {playerimg.src = "greenbean.png"; keys.space = false;}
-    if (controls.dashdown.includes(e.code)) {keys.dashdown = false; dashing = false; gravity = 1; speed = 5;}
+    if (controls.jump.includes(e.code)) { playerimg.src = "greenbean.png"; keys.space = false; }
+    if (controls.dashdown.includes(e.code)) { keys.dashdown = false; dashing = false; gravity = 1; speed = 5; }
 });
 
 
 function gameLoop() {
 
-        //update hitbox
+    //update hitbox
 
     playhit = player.getBoundingClientRect();
 
@@ -90,7 +91,7 @@ function gameLoop() {
     }
 
     //movement
-    if (dashing == false){
+    if (dashing == false) {
         if (keys.right == true && xpos + playerwidth < wall) {
             xpos += speed;
         }
@@ -99,7 +100,7 @@ function gameLoop() {
         }
     }
 
-    }
+
     if (keys.dashdown == true && grounded == false && dashing == false) {
         dashing = true;
         yvelocity = 35;
